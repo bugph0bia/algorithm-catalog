@@ -5,14 +5,14 @@ class Stack:
 
     def __init__(self, max):
         """コンストラクタ"""
-        self._stack = [None] * max
+        self._buff = [None] * max
         self._sp = 0
 
     def push(self, data):
         """プッシュ"""
-        if self._sp >= len(self._stack):
+        if self._sp >= len(self._buff):
             raise MemoryError
-        self._stack[self._sp] = data
+        self._buff[self._sp] = data
         self._sp += 1
 
     def pop(self):
@@ -20,7 +20,11 @@ class Stack:
         if self._sp <= 0:
             raise MemoryError
         self._sp -= 1
-        return self._stack[self._sp]
+        return self._buff[self._sp]
+        
+    def __str__(self):
+        """文字列表現"""
+        return f'{self._sp}, {self._buff}'
 
 
 class StackPythonic:
@@ -28,15 +32,19 @@ class StackPythonic:
 
     def __init__(self):
         """コンストラクタ"""
-        self._stack = []
+        self._buff = []
 
     def push(self, data):
         """プッシュ"""
-        self._stack.append(data)
+        self._buff.append(data)
 
     def pop(self):
         """ポップ"""
-        return self._stack.pop(-1)
+        return self._buff.pop(-1)
+
+    def __str__(self):
+        """文字列表現"""
+        return f'{self._buff}'
 
 
 if __name__ == '__main__':
@@ -47,6 +55,7 @@ if __name__ == '__main__':
     print(s.pop())
     print(s.pop())
     print(s.pop())
+    print(s)
 
     sp = StackPythonic()
     sp.push(1)
@@ -55,4 +64,4 @@ if __name__ == '__main__':
     print(sp.pop())
     print(sp.pop())
     print(sp.pop())
-
+    print(sp)
