@@ -40,6 +40,8 @@ class StackPythonic:
 
     def pop(self):
         """ポップ"""
+        if len(self._buff) == 0:
+            raise MemoryError
         return self._buff.pop(-1)
 
     def __str__(self):
@@ -50,18 +52,30 @@ class StackPythonic:
 if __name__ == '__main__':
     s = Stack(4)
     s.push(1)
+    print(s)
     s.push(2)
+    print(s)
     s.push(3)
+    print(s)
     print(s.pop())
+    print(s)
     print(s.pop())
+    print(s)
     print(s.pop())
     print(s)
 
+    print()
+
     sp = StackPythonic()
     sp.push(1)
+    print(sp)
     sp.push(2)
+    print(sp)
     sp.push(3)
+    print(sp)
     print(sp.pop())
+    print(sp)
     print(sp.pop())
+    print(sp)
     print(sp.pop())
     print(sp)
