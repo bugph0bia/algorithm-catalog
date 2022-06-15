@@ -1,5 +1,5 @@
 
-class Queue:
+class QueueClassic:
     """キュー"""
 
     def __init__(self, max):
@@ -30,8 +30,8 @@ class Queue:
         return f'{self._head}, {self._tail}, {self._buff}'
 
 
-class QueuePythonic:
-    """キュー(Python風)"""
+class Queue:
+    """キュー"""
 
     def __init__(self):
         """コンストラクタ"""
@@ -51,9 +51,13 @@ class QueuePythonic:
         """文字列表現"""
         return f'{self._buff}'
 
+    def __bool__(self):
+        """真偽"""
+        return bool(self._buff)
+
 
 if __name__ == '__main__':
-    q = Queue(4)
+    q = QueueClassic(4)
     q.enqueue(1)
     print(q)
     q.enqueue(2)
@@ -69,16 +73,16 @@ if __name__ == '__main__':
     
     print()
 
-    qp = QueuePythonic()
-    qp.enqueue(1)
-    print(qp)
-    qp.enqueue(2)
-    print(qp)
-    qp.enqueue(3)
-    print(qp)
-    print(qp.dequeue())
-    print(qp)
-    print(qp.dequeue())
-    print(qp)
-    print(qp.dequeue())
-    print(qp)
+    q = Queue()
+    q.enqueue(1)
+    print(q)
+    q.enqueue(2)
+    print(q)
+    q.enqueue(3)
+    print(q)
+    print(q.dequeue())
+    print(q)
+    print(q.dequeue())
+    print(q)
+    print(q.dequeue())
+    print(q)

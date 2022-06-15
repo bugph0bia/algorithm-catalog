@@ -1,6 +1,6 @@
 
 
-class Stack:
+class StackClassic:
     """スタック"""
 
     def __init__(self, max):
@@ -27,8 +27,8 @@ class Stack:
         return f'{self._sp}, {self._buff}'
 
 
-class StackPythonic:
-    """スタック(Python風)"""
+class Stack:
+    """スタック"""
 
     def __init__(self):
         """コンストラクタ"""
@@ -48,9 +48,13 @@ class StackPythonic:
         """文字列表現"""
         return f'{self._buff}'
 
+    def __bool__(self):
+        """真偽"""
+        return bool(self._buff)
+
 
 if __name__ == '__main__':
-    s = Stack(4)
+    s = StackClassic(4)
     s.push(1)
     print(s)
     s.push(2)
@@ -66,16 +70,16 @@ if __name__ == '__main__':
 
     print()
 
-    sp = StackPythonic()
-    sp.push(1)
-    print(sp)
-    sp.push(2)
-    print(sp)
-    sp.push(3)
-    print(sp)
-    print(sp.pop())
-    print(sp)
-    print(sp.pop())
-    print(sp)
-    print(sp.pop())
-    print(sp)
+    s = Stack()
+    s.push(1)
+    print(s)
+    s.push(2)
+    print(s)
+    s.push(3)
+    print(s)
+    print(s.pop())
+    print(s)
+    print(s.pop())
+    print(s)
+    print(s.pop())
+    print(s)
